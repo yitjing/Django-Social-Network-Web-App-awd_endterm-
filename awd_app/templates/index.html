@@ -1,0 +1,136 @@
+<!-- I wrote this code -->
+<!DOCTYPE html>
+<!-- Home page where user could view user and friends photo post -->
+<!-- Allows user to search for friends who are member of the application -->
+<!-- Allows user to logout of the account -->
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>{{request.user.username}} Home Page</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'myStyles.css' %}">
+		<!--link reference from the w3school-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body id="indexBody">
+		<div id="formOverlay"></div>
+		
+		<!--Navigation header-->
+		<div id="navigationHeader">
+			<div id="navigationAction">
+				<a href="">Home</a>
+				<!-- end of code i wrote -->
+				
+				<!--search bar input reference from w3schools-->
+				<form action="search/" method="POST">
+					{% csrf_token %}
+					<input type="text" placeholder="Search for user..." name="search">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+			
+			
+			<!--dropdown menu reference from w3schools-->
+			<div class="dropDown">
+				<img class="btnImg" src="{{ userProfile.profileImg.url }}" alt="profile image" onclick="dropDownMenu()"/>
+				<div id="dropDownMenu" class="dropDownContent" >
+					<a href="profile/{{userProfile.user}}">{{userProfile.user}}</a>
+					<a href="editProfile/">Edit Profile</a>
+					<a href="userLogout/">Logout</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- I wrote this code -->
+		<div id="homePageContent">
+			<div>
+				<!--clickable image that shows pop up form to upload new post-->
+				<div id="uploadPostContainer">
+					<div id="uploadTitle">
+						<h2>Upload Post</h2>
+					</div>
+					<div id="uploadImg" onclick="openForm()">
+						<!-- Upload icon by Icons8 -->
+						<img src="/media/icons8-upload-64.png" alt="upload icon" width="70" height="70"/>
+					</div>
+				</div>
+				
+				<!-- popup form to upload new post-->
+				<div class="popUpFormContainer" id="uploadForm">
+					<!--the name for the POST must be identical to the model -->
+					<!--if using the serializer-->
+					<!--if not manual save it in the views-->
+					<form action="uploadPost/" method="POST" class="popUpForm" enctype="multipart/form-data">
+						{% csrf_token %}
+						<h1 id="formTitle">Upload Post</h1>
+						<hr>
+						
+						<textarea id="caption" class="captionTextArea" name="caption" rows="6" placeholder="Share your day"></textarea>
+
+						<input type="file" name="image">
+
+						<button type="submit" class="UploadBtn">Upload</button>
+						<button type="button" class="cancelBtn" onclick="closeForm()">Cancel</button>
+					</form>
+				</div>
+				
+				<!--list of posts-->
+				<div id="postContent">
+					{% for post in posts reversed %}
+					<div class="postContainer">
+						<div class="postHeader">
+							<div class="postInfo">
+								<a href="profile/{{post.user}}">{{post.user}}</a>
+								<p>{{post.created}}</p>
+							</div>
+							<!--More icon by Icons8-->
+							<div id="deletePost">
+								<!-- Upload icon by Icons8 -->
+								<img class="deleteImg" src="/media/icons8-more-90.png" alt="more icon" width="30" height="30" onclick="dropDownDelete()"/>
+								<div id="dropDownDelete" class="dropDownDeleteContent" >
+									<a href="deletePost/{{post.postId}}">Delete Post</a>
+								</div>
+							</div>
+						</div>
+						
+						<div class="postCaption">
+							<p>{{post.caption}}</p>
+						</div>
+						
+						<div class="postImage">
+							<img src="{{post.image.url}}" alt="post image"/>
+						</div>
+						
+						<div class="postLikeNo">
+							{% if post.likes > 0 %}
+							<p>Liked by {{post.likes}} </p>
+							{% endif %}
+						</div>
+						<hr>
+						<div class="likeBtn">
+							<!--Like icon by Icons8-->
+							<img src="/media/icons8-like-64.png" alt="like icon" width="30" height="30"/>
+							<!--passed in the postId for each post that you have clicked like button-->
+							<a href="likePost/?postId={{post.postId}}">Like</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		
+			<div id="friendListContainer">
+				<h2>Friends</h2>
+					{% for friend in friendList %}
+					<div id="friendList">
+						<a href="profile/{{friend.0}}" class="friend">{{friend.0}}</a>
+						<a href="{{friend.1.0}}" class="chatBtn">Chat</a>
+					</div>
+					{% endfor %}
+			</div>
+		</div>
+		
+		<!--external Javascript-->
+		<script src="{% static 'myScript.js' %}"></script>
+	</body>
+</html>
+<!-- end of code i wrote -->

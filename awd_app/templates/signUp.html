@@ -1,0 +1,31 @@
+<!-- I wrote this code -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Sign Up</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'myStyles.css' %}">
+	</head>
+	<body class="loginSignUpContent">
+		<div class="loginSignUpInnerContainer">
+			<div class="loginSignUp">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<h1>Sign Up</h1>
+					<input class="text" type="text" name="username" placeholder="Username">
+					<input class="text" type="password" name="password" placeholder="Create Password">
+					<input class="text" type="password" name="password2" placeholder="Confirm Password">
+					<button class="loginSignUpBtn" type="submit">Sign Up</button>
+				</form>
+				<div class="loginLink">
+					<p>Existing member? <a href="../userLogin/">Login</a></p>
+				</div>
+				{% for message in messages %}
+				<p class="errorMessage">{{message}}</p>
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+</html>
+<!-- end of code i wrote -->

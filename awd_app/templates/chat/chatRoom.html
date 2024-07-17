@@ -1,0 +1,76 @@
+<!DOCTYPE hmtl>
+<!-- I wrote this code -->
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{{request.user}} Chat Room</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'myStyles.css' %}">
+</head>
+
+<body id="chatRoomBody">
+	<!-- Navigation header -->
+	<div id="navigationHeader">
+		<div id="backHome">
+			<a href="../">Home</a>
+		</div>
+	</div>
+	
+	<div id="chatRoomContent">
+		<textarea id="chatLog" cols="60" rows="18"></textarea><br>
+		<div id="inputContainer">
+			<input id="messageInput" type="text"><br>
+			<input id="submitMessage" type="button" value="Send">
+		</div>
+	</div>
+	<!--end of code i wrote-->
+	
+	<!--references from the coursera, lecturer, geeks for geeks-->
+	{{ room_name|json_script:"room-name" }}
+	
+	<script>
+		const roomName = JSON.parse(document.getElementById('room-name').textContent);
+		const chatSocket = new WebSocket(
+			'ws://'
+			+ window.location.host
+			+ '/ws/awd_app/'
+			+ roomName
+			+ '/'
+		);
+
+		// .onmessage is an event listener
+		// it will be call when a message is received from the server
+		chatSocket.onmessage = function(e) {
+			const data = JSON.parse(e.data);
+			document.querySelector('#chatLog').value += (data.userName + ': ' + data.message + '\n');
+		};
+		
+		//call when connection is close
+		chatSocket.onclose = function(e) {
+			console.error('Chat socket connection close');
+		};
+		
+		document.querySelector('#messageInput').focus();
+		document.querySelector('#messageInput').onkeyup = function(e) {
+			// when enter or return key is press
+			if (e.keyCode === 13){
+				document.querySelector('#submitMessage').click();
+			}
+		};
+		
+		document.querySelector('#submitMessage').onclick = function(e) {
+			const messageInputDom = document.querySelector('#messageInput');
+			const message = messageInputDom.value;
+			const userName = "{{request.user.username}}"
+			
+			chatSocket.send(JSON.stringify({
+				'message': message,
+				'userName': userName
+			}));
+			
+			//make the client message input box blank after every message sent
+			messageInputDom.value ='';
+		};
+	</script>
+</body>
+</html>

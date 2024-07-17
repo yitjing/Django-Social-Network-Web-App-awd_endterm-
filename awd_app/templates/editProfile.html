@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- I wrote this code -->
+<!-- allows user to edit their profile information such as username, bio, location, birthdate, profile Image and cover image -->
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>{{request.user.username}}'s Edit Profile</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'myStyles.css' %}">
+	</head>
+	<body id="editProfileBody">
+		<!-- Navigation header -->
+		<div id="navigationHeader">
+			<div id="backHome">
+				<a href="../">Home</a>
+			</div>
+		</div>
+		<div id="editProfileContent">
+			<div class="profileForm">
+				<form action="" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<h1 id="formTitle">Edit Profile page</h1>
+					<hr>
+					
+					<label for="profileImg">Profile Image</label><br>
+					<img id="profileImg" src="{{ userProfile.profileImg.url}}" alt="image" width="130" height="130"/><br>
+					<input type="file" name="profileImage"><br>
+					
+					<label for="coverImg">Cover Image</label><br>
+					<img id="coverImg" src="{{ userProfile.coverImg.url}}" alt="image" width="130" height="130"/><br>
+					<input type="file" name="coverImage"><br>
+					
+					<label for="name">Name</label><br>
+					<input id="name" class="editText" type="text" name="firstName" placeholder="First Name" value={{userProfile.firstName}}>
+					<input class="editText" type="text" name="lastName" placeholder="Last Name" value={{userProfile.lastName}}><br>
+					
+					<label for="birthDate">Birth Date</label><br>
+					<input id= "birthDate" class="editText" type="date" name="birthDate" value="{{ userProfile.birthDate|date:'Y-m-d' }}"><br>
+					
+					<label for="bio">Bio</label><br>
+					<textarea id="bio" class="bioTextArea" name="bio" rows="4">{{userProfile.bio}}</textarea><br>
+					
+					<label for="location">Location</label><br>
+					<input id= "location" class="editText" type="text" name="location" value={{userProfile.location}}><br>
+					
+					<button class="cancelBtn" type="button"><a href="../">Cancel</a></button>
+					<button class="saveBtn" type="submit">Save</button>
+				</form>
+			</div>
+			<div id="deleteUser">
+				<a href="../deleteUser">Delete Account</a>
+			</div>
+		</div>
+	</body>
+</html>
+<!-- end of code i wrote -->

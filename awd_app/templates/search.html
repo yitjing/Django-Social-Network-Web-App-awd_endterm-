@@ -1,0 +1,53 @@
+<!-- I wrote this code -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Search User Page</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'myStyles.css' %}">
+		<!--link reference from the w3school-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body id="searchBody">
+		<!--Navigation header-->
+		<div id="navigationHeader">
+			<div id="navigationAction">
+				<a href="../">Home</a>
+				<!-- end of code i wrote -->
+				
+				<!--search bar input reference from w3schools-->
+				<form action="" method="POST">
+					{% csrf_token %}
+					<input type="text" placeholder="Search for user..." name="search">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+			
+			
+			<!--dropdown menu reference from w3schools-->
+			<div class="dropDown">
+				<img class="btnImg" src="{{ userProfile.profileImg.url }}" alt="profile image" onclick="dropDownMenu()"/>
+				<div id="dropDownMenu" class="dropDownContent" >
+					<a href="../profile/{{userProfile.user}}">{{userProfile.user}}</a>
+					<a href="../editProfile/">Edit Profile</a>
+					<a href="../userLogout/">Logout</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="searchContent">
+			<p>Search Results</p>
+			<!--reference from github tomitokko/django-social-media-website-->
+			{% for users in searchUserProfileList %}
+			<div id="resultContent">
+				<img src="{{users.profileImg.url}}" alt="profile image"/>
+				<a href="../profile/{{users.user}}">{{users.user}}</a>
+			</div>
+			{% endfor %}
+		</div>
+		
+		<!--external Javascript-->
+		<script src="{% static 'myScript.js' %}"></script>
+	</body>
+</html>

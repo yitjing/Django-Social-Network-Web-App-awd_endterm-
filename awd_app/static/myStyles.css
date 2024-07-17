@@ -1,0 +1,728 @@
+/* I wrote this code */
+/* navigation header */
+body {
+	margin:0px;
+}
+
+#navigationHeader {
+	width: 100%;
+	background: #D7BBF5;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#backHome {
+	margin: 15px;
+	align-self: center;
+}
+
+#backHome a {
+	padding: 8px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #13002E;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#backHome a:hover {
+	background: #DEDEDE;
+}
+
+/* Home page css*/
+/* home page navigation header css */
+#navigationAction {
+	margin: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#navigationAction form {
+	margin-left: 25px;
+}
+
+#navigationAction input {
+	padding-left: 8px;
+	width: 200px;
+	height: 36px;
+	font-size: 16px;
+	border: none;
+	border-radius: 15px;
+}
+
+#navigationAction button {
+	width: 36px;
+	height: 36px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+#navigationAction a {
+	padding: 8px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #13002E;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#navigationAction a:hover {
+	background: #DEDEDE;
+}
+
+/* home page content css */
+#homePageContent {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+/* end of code i wrote */
+
+/*drop down clickable image css*/
+/* references from w3schools */
+/* clickable image to implement drop down menu */
+.dropDown {
+	position: relative;
+	align-self: center;
+	margin-right: 32px;
+}
+
+.dropDown img{
+	width: 60px;
+	height: 60px;
+}
+
+.btnImg {
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+/* drop down menu content */
+.dropDownContent {
+	display: none;
+	position: absolute;
+	min-width: 172px;
+	margin-top: 5px;
+	left: -135px;
+	background: #F1E6FC;
+	overflow: auto;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+	z-index: 1;
+}
+
+.dropDownContent a {
+	padding: 13px 14px;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+}
+
+.dropDown a:hover {
+	background: #D7BBF5;
+}
+
+.show {
+	display: block;
+}
+
+/* I wrote this code */
+/* formOverlay css */
+#formOverlay {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1;
+}
+
+/* clickable image to upload post form css */
+#indexBody {
+	background: #A8A8A8;
+}
+
+#uploadPostContainer {
+	width: 500px;
+	height: 150px;
+	background: white;
+	border-radius: 10px;
+}
+
+#uploadTitle {
+	margin: 15px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding: 4px;
+}
+
+#uploadTitle h2{
+	margin: 10px 0px;
+}
+
+#uploadImg {
+	width: 400px;
+	height: 80px;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	background: #D7BBF5;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+/* Popup form to upload new post css */
+.popUpFormContainer {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.popUpForm {
+	max-width: 300px;
+	padding: 15px;
+	background: white;
+	border-radius: 10px;
+}
+
+#formTitle {
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-align:center;
+}
+
+/* caption text area css */
+.captionTextArea {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+/* upload and cancel button css*/
+.popUpForm button {
+	margin-top: 25px;
+	margin-right: 23px;
+	padding: 5px 10px;
+	background: #6528F7;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.popUpForm button:hover {
+	opacity: 1;
+}
+
+.popUpForm .cancelBtn {
+	background: red;
+	opacity: 1;
+}
+
+.popUpForm .cancelBtn:hover {
+	background: #B00707;
+}
+
+/* friend list css */
+#friendListContainer {
+	margin-left: 40px;
+	margin-bottom: 40px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	background: white;
+	border-radius: 10px;
+}
+
+#friendListContainer h2 {
+	margin-top: 0px;
+}
+
+#friendList {
+	margin-bottom: 15px;
+}
+
+#friendList a {
+	padding: 5px; 
+	font-size: 20px;
+	font-weight: bold;
+	color: #6528F7;
+	text-decoration: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#friendList a:hover {
+	background: #DEDEDE;
+}
+
+.chatBtn {
+	background: #FCBAAD;
+}
+
+/* post css*/
+.postContainer {
+	width: 500px;
+	margin: 40px;
+	margin-left: 0px;
+	background: white;
+	border-radius: 10px;
+}
+
+/* post header css */
+.postHeader {
+	padding: 15px;
+	padding-bottom: 0px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+/* user, created time and delete button css*/
+.postInfo {
+	display: flex;
+	flex-direction: column;
+}
+
+.postInfo a{
+	margin: 0px;
+	margin-bottom: 10px;
+	color: black;
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.postInfo p {
+	margin: 0px;
+	font-size: 13px;
+	font-weight: bold;
+	color: grey;
+}
+
+/* delete post pop up form */
+#deletePost img {
+	margin-left: auto;
+	padding: 3px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+#deletePost img:hover {
+	background: #DEDEDE;
+}
+
+.dropDownDeleteContent {
+	display: none;
+	position: absolute;
+	min-width: 172px;
+	background: #F1E6FC;
+	overflow: auto;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+	z-index: 1;
+}
+
+.dropDownDeleteContent a {
+	margin: 7px;
+	padding: 5px;
+	font-weight: bold;
+	color: red;
+	display: block;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.dropDownDeleteContent a:hover {
+	background: #DEDEDE;
+	cursor: pointer;
+}
+
+.showDelete {
+	display:block;
+}
+
+.postCaption {
+	padding: 15px;
+	padding-top: 0px;
+	font-size: 18px;
+}
+
+.postImage img{
+	width: 100%;
+}
+
+.postLikeNo {
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+.likeBtn {
+	margin: 15px;
+	margin-top: 0px;
+	padding: 10px;
+	padding-top: 0px;
+	width: 90px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
+}
+
+.likeBtn:hover {
+	background: #DEDEDE;
+}
+
+.likeBtn a {
+	margin-left: 15px;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+/* Search page css */
+#searchBody {
+	background: #A8A8A8;
+}
+
+#searchContent {
+	margin-left: 20%;
+}
+
+#searchContent p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#resultContent {
+	margin-bottom: 30px;
+	padding: 20px;
+	width: 30%;
+	background: white;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+}
+
+#resultContent img {
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+}
+
+#resultContent a {
+	margin-left: 25px;
+	font-size: 35px;
+	font-weight: bold;
+	text-decoration: none;
+	align-self: center;
+	cursor: pointer;
+}
+
+/* Login and Sign up page css */
+.loginSignUpContent {
+	width: 100%;
+	height: 100vh;
+	background: #A076F9;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
+
+.loginSignUpInnerContainer {
+	width: 980px;
+	height: 580px;
+	background: #D7BBF5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+}
+
+.loginSignUp {
+	padding:20px;
+	width: 330px;
+	background: white;
+	border-radius: 20px;
+}
+
+.text {
+	width: 100%;
+	height: 30px;
+	border-color: grey;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+
+.loginSignUpBtn {
+	margin-top: 20px;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: 20px;
+	background: #A076F9;
+	color: white;
+	cursor: pointer;
+}
+
+.errorMessage {
+	text-align: center;
+	color: red;
+}
+
+.loginLink {
+	margin-top: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* login page css */
+.signUpLink {
+	margin-top: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* profile page css */
+#profilePageBody {
+	background: #A8A8A8;
+}
+
+/* profile header css */
+#profileHeader {
+	background: #EDEDED;
+	padding-bottom: 20px;
+}
+
+#coverImage {
+	margin-left: 10%;
+	margin-right: 10%;
+	height: 380px;
+	overflow: hidden;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#coverImage img{
+	width: 100%;
+}
+
+#profileInfo {
+	margin-left: 15%;
+	margin-right: 15%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#profileInfo form {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+#profileInfo p {
+	margin-left: auto;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#userName h1{
+	margin-top: 15px;
+}
+
+.editProfileButton {
+	margin-left: 40px;
+	padding: 8px;
+	height: 36px;
+	background: #6528F7;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.followButton {
+	margin-left: 40px;
+	padding: 13px;
+	height: 50px;
+	background: #6528F7;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#profileImage {	
+	margin-top: -90px;
+	margin-right: 20px;
+	position: relative;
+	z-index: 1;
+}
+
+#profileImage img {
+	width: 170px;
+	height: 170px;
+	border: 5px solid white;
+	border-radius: 50%;
+}
+
+#profilePageContent {
+	margin-left: 20%;
+}
+
+/* user bio css */
+#userBio {
+	margin-top: 20px;
+	margin-right: 20%;
+	padding: 15px;
+	background: white;
+	font-size: 17px;
+	border-radius: 10px;
+}
+
+/* editProfile page css */
+#editProfileBody {
+	padding-bottom: 8%;
+	width: 100%;
+	background: #A076F9;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; 
+}
+
+#editProfileContent {
+	display: flex;
+	flex-direction: row;
+}
+
+#deleteUser {
+	height: 28px;
+	margin: 30px;
+	padding: 6px;
+	background:red;	
+	border-radius: 5px;
+}
+
+#deleteUser:hover{
+	background: #990000;
+}
+
+#deleteUser a {
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-decoration:none;
+}
+
+.profileForm {
+	margin-top: 20px;
+	padding: 20px;
+	width: 330px;
+	background: white;
+	border-radius: 20px;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 8px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.editText {
+	height: 30px;
+	border-color: grey;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	padding-left: 7px;
+	font-size: 15px;
+}
+
+.bioTextArea {
+	width: 290px;
+	border-width: 2px;
+	border-color: grey;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	padding: 7px;
+	font-size: 15px;
+}
+
+.profileForm button {
+	padding: 8px;
+	font-size: 16px;
+}
+
+.cancelBtn {
+	margin-top : 10px;
+	margin-right: 15px;
+}
+
+.cancelBtn a {
+	color: red;
+	text-decoration: none;
+}
+
+#chatRoomBody {
+	background: #A8A8A8;
+}
+
+#chatRoomContent {
+	margin-top: 30px;
+	margin-left: 10%;
+}
+
+#chatLog {
+	margin-bottom: 15px;
+	padding: 10px;
+	font-size: 18px;
+	border: none;
+	border-radius: 10px;
+}
+
+#inputContainer {
+	height: 35px;
+	display: flex;
+	flex-direction: row;
+}
+
+#messageInput {
+	width: 400px;
+	height: 35px;
+	margin-bottom: 20px;
+	padding: 5px;
+	border: none;
+	border-radius: 10px;
+	
+}
+
+#submitMessage {
+	margin-left: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	background: #6528F7;
+}
+/* end of code i wrote */
