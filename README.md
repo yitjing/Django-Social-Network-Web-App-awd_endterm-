@@ -1,4 +1,4 @@
-Advanced Web Development Endterm Project (Django Social Network Web Application)
+#Advanced Web Development Endterm Project (Django Social Network Web Application)
 
 Implemented a social media application that allows user to register an secured account, upload post, follow user existing in the application, and have a real time chat with their friends. 
 
